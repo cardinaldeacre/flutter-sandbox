@@ -14,12 +14,12 @@ class AuthService {
 
       return {
         'statusCode': response.statusCode,
-        'body': jsonDecode(response.body),
+        'data': jsonDecode(response.body),
       };
     } catch (e) {
       return {
         'statusCode': 500,
-        'body': {'message': 'Gagal koneksi ke server'},
+        'data': {'message': 'Gagal koneksi ke server'},
       };
     }
   }
