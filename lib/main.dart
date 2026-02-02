@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Violet App',
       theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
-      home: const LoginPage(),
+      home: const LoginScreen(),
     );
   }
 }
