@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:violet/screen/main_wrapper.dart';
 import '../services/auth_service.dart';
 
 class AuthForm extends StatefulWidget {
@@ -27,6 +28,22 @@ class _AuthFormState extends State<AuthForm> {
 
     if (!mounted) return;
     setState(() => _isLoading = false);
+
+    if (result['statusCode'] == 200) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MainWrapper()),
+      );
+
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("Login berhasil")));
+    } else {
+      final errorMessage = result['error'] ?? 'Terjadi kesalahan tak terduga';
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(errorMessage)));
+    }
 
     final message = (result['data'] != null)
         ? (result['data']['message'] ?? 'Unknown response')

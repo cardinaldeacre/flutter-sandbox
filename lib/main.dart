@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'screen/login_screen.dart';
-import 'screen/onboarding_screen.dart';
+import 'screen/login_screen.dart';
+// import 'screen/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,8 +28,9 @@ class MyApp extends StatelessWidget {
       ),
 
       themeMode: ThemeMode.system,
-      // home: const LoginScreen(),
-      home: const ConcentricAnimationOnboarding(),
+
+      // home: const ConcentricAnimationOnboarding(),
+      home: const LoginScreen(),
     );
   }
 }
